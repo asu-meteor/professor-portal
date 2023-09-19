@@ -1,0 +1,51 @@
+<div class="h-screen flex flex-col gap-8 items-center justify-center">
+  <!--Page for uploading files into firebase server by professors-->
+  <div class="text-center flex flex-col gap-4">
+    <div class="items-center flex flex-col gap-4 p-2">
+      <mat-card-title class="text-white text-4xl"
+        >Dreamscape Immersive Classroom</mat-card-title
+      >
+      <mat-card-title class="text-[#FFB800] text-2xl"
+        >Upload a math model. You can only upload dae, ply, and csv
+        files.</mat-card-title
+      >
+    </div>
+    <div class="flex flex-col gap-2">
+    <div class="flex flex-row gap-4 justify-center">
+      <!-- Select file field -->
+      <div class="w-full">
+        <!-- temporarily using !important rull to override mat button styling to replicate what's on figma -->
+        <!-- might be worth creating our own button templates to reference -->
+        <button mat-button class="!bg-transparent !border-2 !border-solid !border-white w-full">
+          <input matInput class="bg-transparent text-white cursor-pointer text-center" [value]="fileName" />
+          <input
+            type="file"
+            id="fileInput"
+            (change)="selectFile($event)"
+            name="fileInput"
+          />
+        </button>
+      </div>
+      <!-- Upload button -->
+      <div>
+        <div class="!h-full">
+          <button
+            mat-button
+            class="uploadButton"
+            [ngClass]="{ '!text-black !bg-[#FFB800]': currentFile }"
+            color="primary"
+            [disabled]="!currentFile"
+            (click)="upload()"
+          >
+            <mat-icon
+              aria-hidden="false"
+              aria-label="Upload"
+              fontIcon="upload"
+            ></mat-icon>
+            Upload
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
