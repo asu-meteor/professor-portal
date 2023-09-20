@@ -23,9 +23,12 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { FileDetailsComponent } from './file-details/file-details.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+
+// Importing Firebase Modules
+import { AngularFireModule } from '@angular/fire/compat'
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { environment } from '../environments/environment';
-import { provideStorage,getStorage } from '@angular/fire/storage';
 
 const materialModules = [
   MatCardModule,
@@ -62,8 +65,9 @@ const routes: Routes = [
     NoopAnimationsModule,
     materialModules,
     RouterModule.forRoot(routes),
-    provideFirebaseApp(() => initializeApp(environment.firebase)),
-    provideStorage(() => getStorage()),
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireStorageModule,
+    AngularFireDatabaseModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

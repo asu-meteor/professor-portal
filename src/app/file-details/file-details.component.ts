@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FileUploadService } from '../file-upload/file-upload.service';
-import { Observable } from 'rxjs';
+import { map } from 'rxjs';
 
 @Component({
   selector: 'app-file-details',
@@ -9,11 +9,17 @@ import { Observable } from 'rxjs';
 })
 export class FileDetailsComponent implements OnInit {
 
-  fileInfos?: Observable<any>;
+  fileUploads?: any[];
 
   constructor(private fileUploadService: FileUploadService) { }
 
   ngOnInit(): void {
-    this.fileInfos = this.fileUploadService.getFiles()
+    this.fileUploadService.getFiles().snapshotChanges().pipe(
+      map(changes =>
+        changes.map(c => ({ key: c.payload.key, ...c.payload.val() })) // store the key
+      )
+    ).subscribe(fileUploads => {
+      this.fileUploads = fileUploads;
+    });
   }
 }
