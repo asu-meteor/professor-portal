@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "dsflow-graphviz": {
+      "hosting": {
+        "ProfessorUI": [
+          "dsflow-graphviz"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "dsflow-graphviz"
+  }
+}
