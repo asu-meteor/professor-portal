@@ -1,18 +1,56 @@
-<!--Show all the files list uploaded to the firebase server-->
-<div class="container align-items-center">
-  <div class="row">
-    <mat-card class="example-card">
-      <mat-card-header>
-        <mat-card-title>List of files</mat-card-title>
-      </mat-card-header>
-      <mat-card-content>
-        <mat-list role="list">
-          <mat-list-item role="listitem" *ngFor="let file of fileUploads">
-            <a href="{{ file.url }}">{{ file.name }}</a>
-          </mat-list-item>
-        </mat-list>
-      </mat-card-content>
-    </mat-card>
+<!-- Show all the files list uploaded to the firebase server -->
+<div class="min-h-screen py-5">
+  <div class="overflow-x-auto w-full">
+    <table
+      class="mx-auto max-w-7xl w-full whitespace-nowrap overflow-hidden"
+    >
+      <thead class="bg-[#373737]">
+        <tr class="text-white text-left">
+          <th class="font-normal text-sm px-6 py-4">Name</th>
+          <th class="font-normal text-sm px-6 py-4">Date uploaded</th>
+          <th class="font-normal text-sm px-6 py-4"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="bg-black hover:bg-neutral-900" *ngFor="let file of fileUploads">
+          <td class="px-6 py-4">
+            <div class="flex items-center space-x-3">
+              <div class="w-1/12 w-1/12">
+                <img alt="model-thumbnail" src="{{ file.url }}" />
+              </div>
+              <div>
+                <p class="text-white font-medium !mb-1">
+                  name: <span class="font-normal">{{ file.name }}</span>
+                </p>
+                <p class="text-white font-medium !mb-1">
+                  file type: <span class="font-normal">{{ file.type }}</span>
+                </p>
+                <p class="text-white font-medium !mb-1">
+                  point cloud: <span class="font-normal">1000</span>
+                </p>
+              </div>
+            </div>
+          </td>
+          <td class="px-6 py-4">
+            <p class="text-gray-300">Uploaded 3 days ago</p>
+          </td>
+          <td class="px-6 py-4">
+            <a
+              type="button"
+              href="{{ file.url }}"
+              class="text-[#FFB800] border border-[#FFB800] rounded-full text-sm px-8 py-2 mr-2 mb-2 hover:bg-yellow-100"
+            >
+              View
+          </a>
+            <button
+              type="button"
+              class="text-white border border-white rounded-full text-sm px-8 py-2 mr-2 mb-2 hover:bg-gray-300"
+            >
+              Take me to it
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </div>
-
