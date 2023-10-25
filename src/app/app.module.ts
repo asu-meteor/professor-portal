@@ -22,6 +22,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { FileDetailsComponent } from './file-details/file-details.component';
+import { CustomComponentsComponent } from './custom-components/custom-components.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 // Importing Firebase Modules
@@ -52,7 +53,8 @@ const materialModules = [
 const routes: Routes = [
   { path: '', redirectTo: '/fileupload', pathMatch: 'full' },
   { path: 'fileupload', component: FileUploadComponent },
-  { path: 'filedetails', component: FileDetailsComponent }
+  { path: 'filedetails', component: FileDetailsComponent },
+  { path: 'customcomponents', component: CustomComponentsComponent }
 ];
 
 @NgModule({
@@ -64,6 +66,7 @@ const routes: Routes = [
     ModalComponent,
     ButtonComponent,
     FieldComponent,
+    CustomComponentsComponent,
   ],
   imports: [
     BrowserModule,
