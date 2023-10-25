@@ -1,0 +1,24 @@
+<div>
+    <!-- Regular text field -->
+    <div *ngIf="fieldType == 'text'" class="text-white border border-white border-solid flex items-center rounded"
+        [class]="addClass">
+        <input class="bg-transparent flex px-4 py-2 items-center focus:outline-none"
+            [placeholder]="fieldType === 'text' ? 'Enter text...' : placeholder" />
+    </div>
+
+    <!-- Search field -->
+    <div *ngIf="fieldType == 'search'"
+        class="text-white border border-white border-solid flex items-center rounded-full" [class]="addClass">
+        <mat-icon aria-hidden="false" aria-label="search" class="ml-2" fontIcon="search" />
+        <input class="bg-transparent flex px-1 py-2 items-center focus:outline-none"
+            [placeholder]="fieldType === 'search' ? 'Search' : placeholder" />
+    </div>
+
+    <!-- Password field (requires password type) -->
+    <div *ngIf="fieldType == 'password'" class="text-white border border-white border-solid flex items-center rounded"
+        [class]="addClass">
+        <mat-icon aria-hidden="false" aria-label="lock" class=" text-base ml-2" fontIcon="lock" />
+        <input class="bg-transparent flex px-1 py-2 items-center focus:outline-none" [type]="fieldType"
+            [placeholder]="fieldType === 'password' ? 'Password' : placeholder" />
+    </div>
+</div>

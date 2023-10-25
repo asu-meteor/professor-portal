@@ -29,6 +29,9 @@ import { AngularFireModule } from '@angular/fire/compat'
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { environment } from '../environments/environment';
+import { ModalComponent } from './components/modal/modal.component';
+import { ButtonComponent } from './components/button/button.component';
+import { FieldComponent } from './components/field/field.component';
 
 const materialModules = [
   MatCardModule,
@@ -57,7 +60,10 @@ const routes: Routes = [
     AppComponent,
     FileUploadComponent,
     NavBarComponent,
-    FileDetailsComponent
+    FileDetailsComponent,
+    ModalComponent,
+    ButtonComponent,
+    FieldComponent,
   ],
   imports: [
     BrowserModule,

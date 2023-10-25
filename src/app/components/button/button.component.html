@@ -1,0 +1,8 @@
+<button class="flex items-center justify-center px-4 py-2 font-medium rounded-full"
+    [ngClass]="{
+        'bg-[#FFB800] text-black': isPrimary, 
+        'bg-transparent border border-solid border-[#FFB800] text-[#FFB800]': !isPrimary}"
+    [class]="addClass">
+    <ng-content select="[icon]"></ng-content>
+    <ng-content></ng-content>
+</button>

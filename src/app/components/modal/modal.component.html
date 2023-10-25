@@ -1,0 +1,15 @@
+<div *ngIf="showModal" class="fixed top-0 left-0 w-full h-full flex items-center justify-center z-50 px-36 py-32">
+
+  <!-- Background blur effect -->
+  <div class="absolute top-0 left-0 w-full h-full backdrop-blur-md bg-white/40" (click)="onClose()"></div>
+
+  <!-- Modal background with close button -->
+  <div class="bg-[#151515] opacity-90 w-screen h-full rounded-xl z-10 relative">
+    <button (click)="onClose()"
+      class="absolute top-3 right-3 px-1 py-1 text-white rounded-sm hover:bg-gray-800 text-2xl w-10">x</button>
+      <div class="p-12 h-full" [class]="addClass">
+        <ng-content></ng-content>
+      </div>
+  </div>
+
+</div>
