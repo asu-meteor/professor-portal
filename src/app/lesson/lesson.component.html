@@ -1,0 +1,9 @@
+<div class="text-white font-medium !mb-1">
+  <button (click)="directToAddlesson()">Add Lesson</button>
+
+  <ul *ngFor="let lessons of lessonList">
+    <li><button (click)="directToContent(lessons.key)">{{ lessons.lessonName }}</button></li>
+    <li>{{lessons.lessonDescription}}</li>
+  </ul>
+
+</div>
