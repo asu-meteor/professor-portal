@@ -11,6 +11,7 @@ export class FileDetailsComponent implements OnInit {
 
   fileUploads?: any[];
 
+
   constructor(private fileUploadService: FileUploadService) { }
 
   ngOnInit(): void {
@@ -20,6 +21,11 @@ export class FileDetailsComponent implements OnInit {
       )
     ).subscribe(fileUploads => {
       this.fileUploads = fileUploads;
+      console.log(this.fileUploads)
     });
+  }
+
+  directToLessonContentPage(): void {
+    console.log(this.fileUploads);
   }
 }

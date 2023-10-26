@@ -1,0 +1,16 @@
+<div class="text-white font-medium !mb-1">
+  <div class="list row">
+    <div class="col-md-6">
+      <button (click)="fileUpload()">File Upload</button>
+      <h4>Content list</h4>
+      <ul class="list-group" *ngFor="let content of contents">
+        <li class="list-group-item">
+          <h1><button (click)="directToContentView(content.key)">{{ content.name }}</button></h1>
+        </li>
+        <li>{{ content.extension }}</li>
+        <li>{{ content.pointCloud }}</li><br />
+      </ul>
+    </div>
+  </div>
+
+</div>

@@ -5,20 +5,39 @@ import { FileUploadService } from './file-upload.service';
 import { SnackbarService } from '../snackbar/snackbar.service';
 import { FileUpload } from '../models/file-upload';
 import { AngularFireList } from '@angular/fire/compat/database';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-file-upload',
   templateUrl: './file-upload.component.html',
   styleUrls: ['./file-upload.component.css'],
 })
-export class FileUploadComponent {
+export class FileUploadComponent implements OnInit {
 
   // Declaring variables
+  lessonKey?: any;
   currentFile?: File;
   progress = 0;
   fileName = 'Select File';
 
-  constructor(private fileUploadService: FileUploadService, private snackBarService: SnackbarService) { }
+  constructor(private fileUploadService: FileUploadService, private snackBarService: SnackbarService, private router: Router, private _route: ActivatedRoute) { }
+
+  ngOnInit() {
+    this.getLessonKey();
+    this.updatedbPath();
+  }
+
+  getLessonKey(): void {
+    this._route.params.subscribe(params => {
+      this.lessonKey = params['lessonId'];
+      console.log(params);
+    })
+  }
+
+  updatedbPath(): void {
+    const path = `${this.lessonKey}`;
+    this.fileUploadService.updatePath(path);
+  }
 
   // Getting file details and dividing into variables
   selectFile(event: any): void {
