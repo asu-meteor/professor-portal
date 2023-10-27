@@ -1,10 +1,9 @@
 <!-- Show all the files list uploaded to the firebase server -->
-<div class="min-h-screen py-5">
+<div class="min-h-screen mx-4 py-5">
+  <app-field addClass="w-[25%] mb-4" fieldType="search"></app-field>
   <div class="overflow-x-auto w-full">
-    <table
-      class="mx-auto max-w-7xl w-full whitespace-nowrap overflow-hidden"
-    >
-      <thead class="bg-[#373737]">
+    <table class="whitespace-nowrap overflow-hidden">
+      <thead class="bg-[#6E6E6E]">
         <tr class="text-white text-left">
           <th class="font-normal text-sm px-6 py-4">Name</th>
           <th class="font-normal text-sm px-6 py-4">Date uploaded</th>
@@ -12,11 +11,12 @@
         </tr>
       </thead>
       <tbody>
-        <tr class="bg-black hover:bg-neutral-900" *ngFor="let file of fileUploads">
+        <tr class="hover:bg-neutral-800 hover:bg-opacity-30" *ngFor="let file of fileUploads">
           <td class="px-6 py-4">
-            <div class="flex items-center space-x-3">
-              <div class="w-1/12 w-1/12">
-                <img alt="model-thumbnail" src="{{ file.url }}" />
+            <div class="flex items-center space-x-4">
+              <div class="w-[25%] w-[25%]">
+                <img alt="model-thumbnail"
+                  src="https://www.mathworks.com/help/examples/vision/win64/ClusterSphericalPointCloudBasedOnEuclideanDistanceExample_01.png" />
               </div>
               <div>
                 <p class="text-white font-medium !mb-1">
@@ -31,23 +31,25 @@
               </div>
             </div>
           </td>
+          <!-- Date upload info -->
           <td class="px-6 py-4">
             <p class="text-gray-300">Uploaded 3 days ago</p>
           </td>
+          <!-- Action buttons -->
           <td class="px-6 py-4">
-            <a
-              type="button"
-              href="{{ file.url }}"
-              class="text-[#FFB800] border border-[#FFB800] rounded-full text-sm px-8 py-2 mr-2 mb-2 hover:bg-yellow-100"
-            >
-              View
-          </a>
-            <button
-              type="button"
-              class="text-white border border-white rounded-full text-sm px-8 py-2 mr-2 mb-2 hover:bg-gray-300" (click)="directToLessonContentPage()"
-            >
-              Take me to it
-            </button>
+            <app-button type="button" [isPrimary]="false"
+              addClass="px-8 py-2 mr-2 mb-2 hover:bg-[#FFB800] hover:bg-opacity-10">
+              <mat-icon aria-hidden="false" aria-label="remove_red_eye" class="text-sm" fontIcon="remove_red_eye" />
+              Preview
+            </app-button>
+            <app-button type="button" [isPrimary]="false"
+              addClass="px-8 py-2 mr-2 mb-2 text-white border border-white hover:bg-gray-300 hover:bg-opacity-10"
+              (click)="directToLessonContentPage()">
+              Go to location
+            </app-button>
+            <app-button type="button" addClass="bg-red-200 text-red-600">
+              <mat-icon aria-hidden="false" aria-label="delete" class="text-sm" fontIcon="delete" />
+              Delete</app-button>
           </td>
         </tr>
       </tbody>
