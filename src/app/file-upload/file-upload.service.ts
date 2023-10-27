@@ -13,21 +13,35 @@ import { FileUpload } from '../models/file-upload';
 // Reference: https://www.bezkoder.com/angular-16-firebase-storage/
 
 export class FileUploadService {
-  private basePath = '/uploads'; // TODO: eventually, it should be 'user_id/lessons' once we get auth to work
+  private basePath = '/Lessons'; // TODO: eventually, it should be 'user_id/lessons' once we get auth to work
+  basePathUpdate?: any;
   constructor(private db: AngularFireDatabase, private storage: AngularFireStorage) { }
+
+  updatePath(newPath: string): void {
+    this.basePathUpdate = `${this.basePath}/${newPath}`;
+  }
 
     // Uploading single file to firebase
   uploadFile(fileUpload: FileUpload): Observable<number | undefined> {
-    const filePath = `${this.basePath}/${fileUpload.file.name}`;
+    const filePath = `${this.basePathUpdate}/${fileUpload.file.name}`;
     const storageRef = this.storage.ref(filePath);
     const uploadTask = this.storage.upload(filePath, fileUpload.file);
+    const fileType = fileUpload.file.type;
+    const pointCloud = 1000;
+    const currentDateTime = Date();
+    const isActive = true;
 
     uploadTask.snapshotChanges().pipe(
       finalize(() => {
         storageRef.getDownloadURL().subscribe(downloadURL => {
           fileUpload.url = downloadURL;
           fileUpload.name = fileUpload.file.name;
-          this.db.list(this.basePath).push(fileUpload);
+          fileUpload.extension = fileType;
+          fileUpload.pointCloud = pointCloud;
+          fileUpload.createdDate = currentDateTime;
+          fileUpload.modifiedDate = currentDateTime;
+          fileUpload.isActive = isActive;
+          this.db.list(this.basePathUpdate).push(fileUpload);
         });
       })
     ).subscribe();
@@ -37,10 +51,13 @@ export class FileUploadService {
 
   // Retrieve all or a specified number of files from firebase
   getFiles(numberItems?: number): AngularFireList<FileUpload> {
-    if(numberItems){
+    if (numberItems) {
+      console.log(`${numberItems} and path is ${this.basePath}`)
       return this.db.list(this.basePath, ref =>
         ref.limitToLast(numberItems));
-    } else{
+    } else {
+      console.log(`${numberItems} and path is ${this.db.list(this.basePath)}`)
+
       return this.db.list(this.basePath);
     }
   }

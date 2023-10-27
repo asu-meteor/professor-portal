@@ -1,0 +1,13 @@
+<div class="text-white font-medium !mb-1">
+  <div class="submit-form">
+    <div class="form-group">
+      <label for="lessonName">Lesson Name: </label>
+      <input type="text" class="form-control" id="lessonName" required [(ngModel)]="createlesson.lessonName" name="lessonName" />
+
+      <label for="lessonDescription">Lesson Description: </label>
+      <input type="text" class="form-control" id="lessonDescription" required [(ngModel)]="createlesson.lessonDescription" name="lessonDescription" />
+
+      <button (click)="newLesson()">Submit</button>
+    </div>
+  </div>
+</div>

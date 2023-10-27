@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { FileUploadComponent } from './file-upload/file-upload.component';
@@ -33,6 +34,10 @@ import { environment } from '../environments/environment';
 import { ModalComponent } from './components/modal/modal.component';
 import { ButtonComponent } from './components/button/button.component';
 import { FieldComponent } from './components/field/field.component';
+import { LessonComponent } from './lesson/lesson.component';
+import { CreateLessonComponent } from './create-lesson/create-lesson.component';
+import { LessonContentComponent } from './lesson-content/lesson-content.component';
+import { ContentPreviewComponent } from './content-preview/content-preview.component';
 
 const materialModules = [
   MatCardModule,
@@ -54,7 +59,14 @@ const routes: Routes = [
   { path: '', redirectTo: '/fileupload', pathMatch: 'full' },
   { path: 'fileupload', component: FileUploadComponent },
   { path: 'filedetails', component: FileDetailsComponent },
-  { path: 'customcomponents', component: CustomComponentsComponent }
+  { path: 'customcomponents', component: CustomComponentsComponent },
+  { path: '', redirectTo: 'lesson', pathMatch: 'full' },
+  { path: 'fileupload/:lessonId', component: FileUploadComponent },
+  { path: 'filedetails', component: FileDetailsComponent },
+  { path: 'lesson', component: LessonComponent },
+  { path: 'addLesson', component: CreateLessonComponent },
+  { path: 'content/:id', component: LessonContentComponent },
+  { path: 'contentView/:lessonId/:contentId', component: ContentPreviewComponent }
 ];
 
 @NgModule({
@@ -67,6 +79,10 @@ const routes: Routes = [
     ButtonComponent,
     FieldComponent,
     CustomComponentsComponent,
+    LessonComponent,
+    CreateLessonComponent,
+    LessonContentComponent,
+    ContentPreviewComponent
   ],
   imports: [
     BrowserModule,
@@ -77,6 +93,7 @@ const routes: Routes = [
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireStorageModule,
     AngularFireDatabaseModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
