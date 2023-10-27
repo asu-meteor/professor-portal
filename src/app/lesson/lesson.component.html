@@ -1,9 +1,14 @@
-<div class="text-white font-medium !mb-1">
-  <button (click)="directToAddlesson()">Add Lesson</button>
-
-  <ul *ngFor="let lessons of lessonList">
-    <li><button (click)="directToContent(lessons.key)">{{ lessons.lessonName }}</button></li>
-    <li>{{lessons.lessonDescription}}</li>
-  </ul>
+<div class="flex flex-col gap-8 px-16 py-8">
+  <app-button (click)="directToAddlesson()">+ New Lesson</app-button>
+  <div class="md:grid md:grid-cols-3 gap-4 flex flex-col">
+    <ng-container *ngFor="let lessons of lessonList">
+      <app-lesson-card
+        (click)="directToContent(lessons.key)"
+        [lessonName]="lessons.lessonName"
+        [lessonDescription]="lessons.lessonDescription"
+        [lessonImageUrl]="'https://www.mathworks.com/help/examples/vision/win64/ClusterSphericalPointCloudBasedOnEuclideanDistanceExample_01.png'" 
+      ></app-lesson-card>
+    </ng-container>
+  </div>
 
 </div>
