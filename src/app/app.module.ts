@@ -25,12 +25,15 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { FileDetailsComponent } from './file-details/file-details.component';
 import { CustomComponentsComponent } from './custom-components/custom-components.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { LessonCardComponent } from './components/lesson-card/lesson-card.component';
+import { FileCardComponent } from './components/file-card/file-card.component';
 
 // Importing Firebase Modules
 import { AngularFireModule } from '@angular/fire/compat'
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { environment } from '../environments/environment';
+
 import { ModalComponent } from './components/modal/modal.component';
 import { ButtonComponent } from './components/button/button.component';
 import { FieldComponent } from './components/field/field.component';
@@ -79,6 +82,8 @@ const routes: Routes = [
     ButtonComponent,
     FieldComponent,
     CustomComponentsComponent,
+    LessonCardComponent,
+    FileCardComponent,
     LessonComponent,
     CreateLessonComponent,
     LessonContentComponent,

@@ -1,65 +1,94 @@
 <div class="border border-gray-500 flex flex-col gap-4 p-5">
-    <mat-card-title class="text-gray-500 text-base font-light mb-4"
-      >Custom Components</mat-card-title
+  <mat-card-title class="text-gray-500 text-base font-light mb-4"
+    >Custom Components</mat-card-title
+  >
+
+  <!-- Pop-up modal with primary button -->
+  <div class="flex gap-2">
+    <p class="text-white">Modal:</p>
+    <app-button (click)="toggleModal()" [isPrimary]="true">
+      <mat-icon
+        aria-hidden="false"
+        aria-label="open_with"
+        class="mr-2"
+        fontIcon="open_with"
+      />
+      Open Modal</app-button
     >
-
-    <!-- Pop-up modal with primary button -->
-    <div class="flex gap-2">
-      <p class="text-white">Modal:</p>
-      <app-button (click)="toggleModal()" [isPrimary]="true">
-        <mat-icon
-          aria-hidden="false"
-          aria-label="open_with"
-          class="mr-2"
-          fontIcon="open_with"
-        />
-        Open Modal</app-button
-      >
-      <app-modal
-        [showModal]="showModal"
-        (closeModal)="toggleModal()"
-        addClass=""
-      >
-        <!-- some example content -->
-        <div class="flex flex-col gap-4 p-2">
-          <mat-card-title class="text-white text-4xl">Title</mat-card-title>
-          <mat-card-title class="text-[#FFB800] text-2xl"
-            >subtitle</mat-card-title
-          >
-        </div>
-      </app-modal>
-    </div>
-    
-    <!-- Different custom buttons -->
-    <div class="flex gap-2">
-      <p class="text-white">Buttons:</p>
-      <app-button [isPrimary]="true"> primary button </app-button>
-      <app-button
-        [isPrimary]="false"
-        addClass="hover:bg-[#FFB800] hover:bg-opacity-10"
-        >secondary button</app-button
-      >
-      <app-button
-        [isPrimary]="true"
-        addClass="bg-red-200 text-red-600 hover:animate-bounce"
-      >
-        <mat-icon
-          aria-hidden="false"
-          aria-label="delete"
-          class="mr-2"
-          fontIcon="delete"
-        />
-        custom button</app-button
-      >
-    </div>
-
-    <!-- Different custom fields -->
-    <div class="flex gap-2">
-      <p class="text-white">Fields:</p>
-      <app-field placeholder="Some placeholder text"> </app-field>
-      <app-field fieldType="search" placeholder="Some placeholder text">
-      </app-field>
-      <app-field fieldType="password" placeholder="Some placeholder text">
-      </app-field>
-    </div>
+    <app-modal [showModal]="showModal" (closeModal)="toggleModal()" addClass="">
+      <!-- some example content -->
+      <div class="flex flex-col gap-4 p-2">
+        <mat-card-title class="text-white text-4xl">Title</mat-card-title>
+        <mat-card-title class="text-[#FFB800] text-2xl"
+          >subtitle</mat-card-title
+        >
+      </div>
+    </app-modal>
   </div>
+
+  <!-- Different custom buttons -->
+  <div class="flex gap-2">
+    <p class="text-white">Buttons:</p>
+    <app-button [isPrimary]="true"> primary button </app-button>
+    <app-button
+      [isPrimary]="false"
+      addClass="hover:bg-[#FFB800] hover:bg-opacity-10"
+      >secondary button</app-button
+    >
+    <app-button
+      [isPrimary]="true"
+      addClass="bg-red-200 text-red-600 hover:animate-bounce"
+    >
+      <mat-icon
+        aria-hidden="false"
+        aria-label="delete"
+        class="mr-2"
+        fontIcon="delete"
+      />
+      custom button</app-button
+    >
+  </div>
+
+  <!-- Different custom fields -->
+  <div class="flex gap-2">
+    <p class="text-white">Fields:</p>
+    <app-field placeholder="Some placeholder text"> </app-field>
+    <app-field fieldType="search" placeholder="Some placeholder text">
+    </app-field>
+    <app-field fieldType="password" placeholder="Some placeholder text">
+    </app-field>
+  </div>
+
+  <!-- Different custom cards (lesson, file) -->
+  <div class="flex gap-2">
+    <p class="text-white">Cards:</p>
+    <app-lesson-card
+      lessonName="Lesson 1"
+      lessonDescription="This is the lesson description so that the professor can know what this lesson is actually about"
+      lessonImageUrl="https://www.mathworks.com/help/examples/vision/win64/ClusterSphericalPointCloudBasedOnEuclideanDistanceExample_01.png"
+    >
+    </app-lesson-card>
+    <app-lesson-card
+      lessonName="Lesson 2"
+      lessonDescription="This is the lesson description so that the professor can know what this lesson is actually about"
+      lessonImageUrl="https://www.mathworks.com/help/examples/vision/win64/ClusterSphericalPointCloudBasedOnEuclideanDistanceExample_01.png"
+    >
+    </app-lesson-card>
+  </div>
+
+  <div class="flex gap-2">
+    <p class="text-white">Cards:</p>
+    <app-file-card
+      fileName="sphere"
+      fileType="csv"
+      fileImageUrl="https://www.mathworks.com/help/examples/vision/win64/ClusterSphericalPointCloudBasedOnEuclideanDistanceExample_01.png"
+    >
+    </app-file-card>
+    <app-file-card
+      fileName="sphere"
+      fileType="csv"
+      fileImageUrl="https://www.mathworks.com/help/examples/vision/win64/ClusterSphericalPointCloudBasedOnEuclideanDistanceExample_01.png"
+    >
+    </app-file-card>
+  </div>
+</div>
