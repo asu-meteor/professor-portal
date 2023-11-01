@@ -1,16 +1,28 @@
-<div class="text-white font-medium !mb-1">
-  <div class="list row">
-    <div class="col-md-6">
-      <button (click)="fileUpload()">File Upload</button>
-      <h4>Content list</h4>
-      <ul class="list-group" *ngFor="let content of contents">
-        <li class="list-group-item">
-          <h1><button (click)="directToContentView(content.key)">{{ content.name }}</button></h1>
-        </li>
-        <li>{{ content.extension }}</li>
-        <li>{{ content.pointCloud }}</li><br />
-      </ul>
+<div class="flex flex-col gap-8 ml-20 mr-4 py-8 text-white max-w-[1236px]">
+  <div class="flex flex-col gap-8">
+    <div class="flex flex-col gap-4">
+      <h1 class="!mb-2 !text-3xl">Lesson Name</h1>
+      <p class="text-xl">
+        This is the lesson description so that the professor can know what this
+        lesson is actually about. This is the lesson description so that the
+        professor can know what this lesson is actually about. This is the
+        lesson description so that the professor can know what this lesson is
+        actually about.
+      </p>
+      <app-button (click)="fileUpload()">+ Add content</app-button>
+    </div>
+    <div class="md:grid md:grid-cols-3 gap-5">
+      <ng-container *ngFor="let content of contents">
+        <!-- passing down key data so that file card has reference to the detailed page of file -->
+        <app-file-card
+          [lessonKey]="key"
+          [fileKey]="content.key"
+          [fileName]="content.name"
+          [fileType]="content.extension"
+          fileImageUrl="https://www.mathworks.com/help/examples/vision/win64/ClusterSphericalPointCloudBasedOnEuclideanDistanceExample_01.png"
+        >
+        </app-file-card>
+      </ng-container>
     </div>
   </div>
-
 </div>

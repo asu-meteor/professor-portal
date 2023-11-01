@@ -1,31 +1,42 @@
 <!-- TODO: add page responsiveness -->
-<div class="relative bg-zinc-700 rounded-xl p-6 flex w-96">
-    <div class="pr-4 w-2/3">
-        <img src="{{fileImageUrl}}" alt="File Image" class="rounded">
+<div
+  class="relative bg-zinc-700 rounded-xl p-6 flex flex-row gap-4 w-[400px] h-[232px]"
+>
+  <div class="pr-4 w-[200px] h-[176px] overflow-hidden rounded">
+    <img
+      src="{{ fileImageUrl }}"
+      alt="File Image"
+      style="transform: scale(2)"
+      class="object-cover transform"
+    />
+  </div>
+  <div class="flex flex-col h-full justify-between">
+    <div
+      class="top-0 right-0 text-base text-white w-36 truncate whitespace-nowrap"
+    >
+      <p class="!mb-1 w-36"><strong>name: </strong>{{ fileName }}</p>
+      <p class="!mb-1 w-36"><strong>file type: </strong>{{ fileType }}</p>
+      <p class="w-36"><strong>point count: </strong>1000</p>
     </div>
-    <div>
-        <div class="top-0 right-0 p-2 text-base text-white">
-        <p class="!mb-1"><strong>file name: </strong>{{fileName}}</p>        
-        <p class="!mb-1"><strong>file type: </strong>{{fileType}}</p>
-        <p class=""><strong>point count: </strong>1000</p>
+    <div class="flex justify-end mt-4 space-x-4">
+      <app-button
+        [isPrimary]="false"
+        addClass="h-[34px]"
+        (click)="directToContentView()"
+      >
+        <mat-icon
+          aria-hidden="false"
+          aria-label="remove_red_eye"
+          class="mr-2"
+          fontIcon="remove_red_eye"
+        />
+        View
+      </app-button>
+      <button
+        class="p-1 bg-transparent border border-red-600 border-solid rounded-full text-red-600 h-[34px]"
+      >
+        <mat-icon aria-hidden="false" aria-label="delete" fontIcon="delete" />
+      </button>
     </div>
-        <div class="flex justify-end mt-4 space-x-4">
-            <app-button [isPrimary]="false">
-                <mat-icon
-                aria-hidden="false"
-                aria-label="remove_red_eye"
-                class="mr-2"
-                fontIcon="remove_red_eye"
-              />
-                View
-            </app-button>
-            <button class="p-1 bg-transparent border border-red-600 border-solid rounded-full text-red-600">
-                <mat-icon
-                aria-hidden="false"
-                aria-label="delete"
-                fontIcon="delete"
-              />
-            </button>
-        </div>
-    </div>
+  </div>
 </div>

@@ -44,8 +44,4 @@ export class LessonContentComponent implements OnInit {
   fileUpload(): void {
     this.router.navigate(['/fileupload', this.key]);
   }
-
-  directToContentView(id: any): void {
-    this.router.navigate(['/contentView', this.key, id])
-  }
 }
