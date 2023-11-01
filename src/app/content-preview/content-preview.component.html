@@ -1,7 +1,39 @@
-<div class="text-white font-medium !mb-1">
-  <ul>
-    <li><h1>{{ finalContents['name'] }}</h1></li>
-    <li>{{ finalContents['extension'] }}</li>
-    <li>{{ finalContents['pointCloud'] }}</li>
-  </ul>
+<div class="text-white ml-20 mr-4 py-8 font-medium !mb-1">
+  <div class="p-6 flex flex-row gap-8 h-[693px]">
+
+    <!-- Left: large image -->
+    <div class="pr-4 overflow-hidden w-[924px] rounded">
+      <img
+        src="https://www.mathworks.com/help/examples/vision/win64/ClusterSphericalPointCloudBasedOnEuclideanDistanceExample_01.png"
+        alt="File Image"
+        style="transform: scale(2.5)"
+        class="object-cover transform"
+      />
+    </div>
+
+    <!-- right: file details-->
+    <div class="flex flex-col h-full justify-between">
+      <div class="top-0 right-0 text-base text-white text-xl font-normal w-full">
+        <p class="!mb-1"><strong>name: </strong>{{ finalContents["name"] }}</p>
+        <p class="!mb-1">
+          <strong>file type: </strong>{{ finalContents["extension"] }}
+        </p>
+        <p class="">
+          <strong>point count: </strong>{{ finalContents["pointCloud"] }}
+        </p>
+      </div>
+      <div class="flex justify-end mt-4 space-x-4 mb-4">
+        <!-- download button -->
+        <app-button addClass="!px-16">
+          <mat-icon
+            aria-hidden="false"
+            aria-label="download"
+            class="mr-2 text-normal"
+            fontIcon="download"
+          />
+          Download
+        </app-button>
+      </div>
+    </div>
+  </div>
 </div>
