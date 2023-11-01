@@ -5,6 +5,7 @@ import { Component, Input } from '@angular/core';
   templateUrl: './field.component.html'
 })
 
+// TODO: THIS IS BROKEN!!!
 export class FieldComponent {
   @Input() fieldType: 'text' | 'password' | 'search' | 'number' = 'text'; // field type is just text by default
   @Input() placeholder: string = '';

@@ -13,6 +13,7 @@
     </div>
     <div class="md:grid md:grid-cols-3 gap-5">
       <ng-container *ngFor="let content of contents">
+        <div *ngIf="content.key !== 'lessonName' && content.key !== 'lessonDescription'">
         <!-- passing down key data so that file card has reference to the detailed page of file -->
         <app-file-card
           [lessonKey]="key"
@@ -22,6 +23,7 @@
           fileImageUrl="https://www.mathworks.com/help/examples/vision/win64/ClusterSphericalPointCloudBasedOnEuclideanDistanceExample_01.png"
         >
         </app-file-card>
+      </div>
       </ng-container>
     </div>
   </div>

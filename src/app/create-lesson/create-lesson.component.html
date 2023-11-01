@@ -1,13 +1,47 @@
-<div class="text-white font-medium !mb-1">
+<!-- TODO: replace default fields below, with custom field component after it is fixed -->
+<div class="text-white flex flex-col gap-4 ml-20 mr-4 mt-10 pb-10 font-medium !mb-1">
+  <h1 class="!mb-0 !text-2xl">Create New Lesson</h1>
+
+  <!-- Form for lesson name and description -->
   <div class="submit-form">
-    <div class="form-group">
-      <label for="lessonName">Lesson Name: </label>
-      <input type="text" class="form-control" id="lessonName" required [(ngModel)]="createlesson.lessonName" name="lessonName" />
+    <div class="form-group flex flex-col gap-4">
+      <div
+        class="text-white border border-white border-solid flex items-center rounded-xl"
+      >
+        <input
+          type="text"
+          placeholder="Input Lesson Name"
+          class="form-control bg-transparent flex px-4 py-4 items-center focus:outline-none text-xl font-light w-full"
+          id="lessonName"
+          required
+          [(ngModel)]="createlesson.lessonName"
+          name="lessonName"
+        />
+      </div>
 
-      <label for="lessonDescription">Lesson Description: </label>
-      <input type="text" class="form-control" id="lessonDescription" required [(ngModel)]="createlesson.lessonDescription" name="lessonDescription" />
+      <div
+        class="text-white border border-white border-solid flex items-center rounded-xl"
+      >
+        <input
+          type="text"
+          placeholder="Add lesson description..."
+          class="form-control bg-transparent flex px-4 py-4 items-center focus:outline-none text-xl font-light w-full"
+          id="lessonDescription"
+          required
+          [(ngModel)]="createlesson.lessonDescription"
+          name="lessonDescription"
+        />
+      </div>
 
-      <button (click)="newLesson()">Submit</button>
+      <app-button (click)="newLesson()">Submit</app-button>
     </div>
+  </div>
+
+  <!-- Upload content box -->
+  <div
+    class="bg-[#373737] p-10 rounded-lg flex flex-col items-center justify-center space-y-2 h-[440px]"
+  >
+    <div class="text-white text-xl font-light">No Content Added</div>
+    <app-button> + Add Content </app-button>
   </div>
 </div>
