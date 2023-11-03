@@ -18,7 +18,7 @@ export class FileUploadComponent implements OnInit {
   lessonKey?: any;
   currentFile?: File;
   progress = 0;
-  fileName = 'Select File';
+  fileName = '';
 
   constructor(private fileUploadService: FileUploadService, private snackBarService: SnackbarService, private router: Router, private _route: ActivatedRoute) { }
 

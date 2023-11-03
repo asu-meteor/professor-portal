@@ -1,51 +1,92 @@
-<div class="h-screen flex flex-col gap-8 items-center justify-center">
-  <!--Page for uploading files into firebase server by professors-->
-  <div class="text-center flex flex-col gap-4">
-    <div class="items-center flex flex-col gap-4 p-2">
-      <mat-card-title class="text-white text-4xl"
-        >Dreamscape Immersive Classroom</mat-card-title
-      >
-      <mat-card-title class="text-[#FFB800] text-2xl"
-        >Upload a math model. You can only upload dae, ply, and csv
-        files.</mat-card-title
-      >
+<!--Page for uploading files into firebase server by professors-->
+<!-- TODO: replace styled buttons and fields with custom components -->
+<div class="text-white ml-32 mr-8 py-8 font-medium !mb-1">
+  <div class="p-6 flex flex-row gap-8 h-[693px]">
+    <!-- Left side: large image -->
+    <div class="pr-4 overflow-hidden w-[924px] rounded">
+      <img
+        src="https://www.mathworks.com/help/examples/vision/win64/ClusterSphericalPointCloudBasedOnEuclideanDistanceExample_01.png"
+        alt="File Image"
+        style="transform: scale(2.5)"
+        class="object-cover transform"
+      />
     </div>
-    <div class="flex flex-col gap-2">
-    <div class="flex flex-row gap-4 justify-center">
-      <!-- Select file field -->
-      <div class="w-full">
-        <!-- temporarily using !important rull to override mat button styling to replicate what's on figma -->
-        <!-- might be worth creating our own button templates to reference -->
-        <button mat-button class="!bg-transparent !border-2 !border-solid !border-white w-full">
-          <input matInput class="bg-transparent text-white cursor-pointer text-center" [value]="fileName" />
-          <input
-            type="file"
-            id="fileInput"
-            (change)="selectFile($event)"
-            name="fileInput"
-          />
-        </button>
-      </div>
-      <!-- Upload button -->
-      <div>
-        <div class="!h-full">
+
+    <!-- right side: upload details-->
+    <div class="h-full flex flex-col">
+      <div class="flex flex-col h-full gap-4">
+        <div class="top-0 right-0 text-white font-normal w-full">
+          <p class="!mb-1 text-base">
+            Supported file formats: dae, ply, csv
+          </p>
+        </div>
+
+        <!-- upload button -->
+        <div class="w-full mb-8">
           <button
             mat-button
-            class="uploadButton"
-            [ngClass]="{ '!text-black !bg-[#FFB800]': currentFile }"
-            color="primary"
-            [disabled]="!currentFile"
-            (click)="upload()"
+            class="!bg-transparent !text-[#FFB800] !border-2 !border-solid !border-[#FFB800] font-normal w-full text-md !rounded-full"
           >
             <mat-icon
               aria-hidden="false"
-              aria-label="Upload"
+              aria-label="upload"
+              class="mr-2 text-normal"
               fontIcon="upload"
-            ></mat-icon>
-            Upload
+            />
+            Upload from device
+            <input
+              type="file"
+              class="!w-[220px]"
+              id="fileInput"
+              (change)="selectFile($event)"
+              name="fileInput"
+            />
           </button>
         </div>
+
+        <!-- file name output box -->
+        <div
+          class="text-white border border-white border-solid flex items-center rounded-xl"
+        >
+          <input
+            type="text"
+            placeholder="Uploaded file's name appears here"
+            disabled
+            class="bg-transparent flex px-4 py-4 items-center focus:outline-none text-md font-light w-full"
+            id="lessonDescription"
+            required
+            name="lessonDescription"
+            [value]="fileName"
+          />
+        </div>
+
+        <!-- add lesson description -->
+        <div
+          class="text-white border border-white border-solid flex items-center rounded-xl"
+        >
+          <textarea
+            type="text"
+            placeholder="Add lesson description..."
+            class="h-full bg-transparent flex px-4 py-4 items-center focus:outline-none text-md font-light w-full"
+            id="lessonDescription"
+            rows="10"
+            name="lessonDescription"
+          ></textarea>
+        </div>
+      </div>
+      <!-- Done button -->
+      <!-- [disabled]="!currentFile" -->
+      <div>
+        <!-- done button -->
+        <button
+          class="w-full text-base bg-[#3F3F3F] rounded-full px-8 py-3 text-gray-500 font-normal"
+          [ngClass]="{ '!text-black !bg-[#FFB800]': currentFile }"
+          [disabled]="!currentFile"
+          (click)="upload()"
+        >
+          Done
+        </button>
       </div>
     </div>
   </div>
-  </div>
+</div>
