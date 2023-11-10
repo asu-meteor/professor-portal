@@ -33,7 +33,7 @@
         />
       </div>
 
-      <app-button (click)="newLesson()">Submit</app-button>
+      <app-button (click)="newLesson()" [isDisabled]="!this.createlesson.lessonName">Submit</app-button>
     </div>
   </div>
 

@@ -16,7 +16,11 @@ export class CreateLessonService {
   }
 
   // Adding lesson description
-  create(lesson: any): any {
-    return this.lessonsRef.push(lesson);
+  create(lesson: any): Promise<any> {
+    return new Promise((resolve, reject) => {
+      this.lessonsRef.push(lesson)
+        .then((result) => resolve(result))
+        .catch((error) => reject(error));
+    });
   }
 }
