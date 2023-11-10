@@ -25,6 +25,7 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { FileDetailsComponent } from './file-details/file-details.component';
 import { CustomComponentsComponent } from './custom-components/custom-components.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { LessonCardComponent } from './components/lesson-card/lesson-card.component';
 import { FileCardComponent } from './components/file-card/file-card.component';
 
@@ -55,7 +56,8 @@ const materialModules = [
   MatGridListModule,
   MatDividerModule,
   MatPaginatorModule,
-  MatSnackBarModule
+  MatSnackBarModule,
+  MatTooltipModule
 ];
 
 const routes: Routes = [
