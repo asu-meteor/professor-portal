@@ -7,7 +7,7 @@ export class FileUpload {
   pointCloud!: Number;
   createdDate!: string;
   modifiedDate!: string;
-  isActive!: Boolean;
+  isActive!: boolean;
 
   constructor(file: File) {
     this.file = file;

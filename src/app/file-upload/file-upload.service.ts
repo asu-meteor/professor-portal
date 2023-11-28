@@ -15,10 +15,16 @@ import { FileUpload } from '../models/file-upload';
 export class FileUploadService {
   private basePath = '/Lessons'; // TODO: eventually, it should be 'user_id/lessons' once we get auth to work
   basePathUpdate?: any;
+  fdUpdatePath?: any;
+
   constructor(private db: AngularFireDatabase, private storage: AngularFireStorage) { }
 
   updatePath(newPath: string): void {
     this.basePathUpdate = `${this.basePath}/${newPath}`;
+  }
+
+  fileDetailUpdatePath(path: string): void {
+    this.fdUpdatePath = `${this.basePath}/${path}`;
   }
 
     // Uploading single file to firebase
@@ -60,6 +66,17 @@ export class FileUploadService {
 
       return this.db.list(this.basePath);
     }
+  }
+
+  getContentDetails(contentPath: string): AngularFireList<FileUpload> {
+    const contentPath1 = contentPath;
+    if (contentPath1) {
+      return this.db.list(contentPath1);
+    }
+    else {
+      return this.db.list(this.basePath);
+    }
+    return this.db.list(this.basePath);
   }
 
   // TODO: uncomment when doing the delete file function
