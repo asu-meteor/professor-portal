@@ -33,4 +33,8 @@ export class LessonContentService {
   getAll(): AngularFireList<FileUpload> {
     return this.contentRef;
   }
+
+  update(key: string, value: any): Promise<void> {
+    return this.contentRef.update(key, value);
+  }
 }

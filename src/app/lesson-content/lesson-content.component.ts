@@ -3,6 +3,7 @@ import { LessonContentService } from '../lesson-content/lesson-content.service';
 import { FileUpload } from '../models/file-upload';
 import { map } from 'rxjs';
 import { Router, ActivatedRoute } from '@angular/router';
+import { SnackbarService } from '../snackbar/snackbar.service';
 
 @Component({
   selector: 'app-lesson-content',
@@ -13,8 +14,10 @@ export class LessonContentComponent implements OnInit {
   // Defining variables
   contents?: any[];
   key?: any;
+  updateKey?: any;
+  active: boolean = false;
 
-  constructor(private lessonContentService: LessonContentService, private router: Router, private _router: ActivatedRoute) { }
+  constructor(private lessonContentService: LessonContentService, private router: Router, private _router: ActivatedRoute, private snackBarService: SnackbarService) { }
 
   ngOnInit(): void {
     this.getLessonKey();
@@ -43,5 +46,13 @@ export class LessonContentComponent implements OnInit {
 
   fileUpload(): void {
     this.router.navigate(['/fileupload', this.key]);
+  }
+
+  updateActive(lessonKey: string, fileKey: string): void {
+    this.updateKey = lessonKey + '/' + fileKey;
+    this.lessonContentService.update(fileKey, { isActive: this.active })
+      .then(() => {
+        this.snackBarService.showSnackbar("Content deleted Successfully");
+      });
   }
 }

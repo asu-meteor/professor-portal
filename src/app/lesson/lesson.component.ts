@@ -28,7 +28,6 @@ export class LessonComponent implements OnInit {
   directToContent(lessonKey: any): void {
     this.id = lessonKey;
     this.router.navigate(['/content', this.id]);
-    console.log((this.id));
   }
 
   directToAddlesson(): void {

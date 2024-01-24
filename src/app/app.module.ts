@@ -61,7 +61,7 @@ const materialModules = [
 ];
 
 const routes: Routes = [
-  { path: '', redirectTo: '/fileupload', pathMatch: 'full' },
+  { path: '', redirectTo: '/lesson', pathMatch: 'full' },
   { path: 'fileupload', component: FileUploadComponent },
   { path: 'filedetails', component: FileDetailsComponent },
   { path: 'customcomponents', component: CustomComponentsComponent },
