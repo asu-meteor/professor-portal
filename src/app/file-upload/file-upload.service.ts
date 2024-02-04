@@ -1,14 +1,20 @@
 import { Injectable } from '@angular/core';
+<<<<<<< Updated upstream
 import { AngularFireDatabase, AngularFireList } from '@angular/fire/compat/database';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
 
 import { Observable } from 'rxjs';
 import { finalize } from 'rxjs/operators';
 import { FileUpload } from '../models/file-upload';
+=======
+import { HttpClient, HttpRequest, HttpEvent } from '@angular/common/http';
+import { Observable } from 'rxjs';
+>>>>>>> Stashed changes
 
 @Injectable({
   providedIn: 'root'
 })
+<<<<<<< Updated upstream
 
 // Reference: https://www.bezkoder.com/angular-16-firebase-storage/
 
@@ -96,4 +102,31 @@ export class FileUploadService {
   //   const storageRef = this.storage.ref(this.basePath);
   //   storageRef.child(name).delete();
   // }
+=======
+export class FileUploadService {
+
+  // Calling a local server for uploading the file
+  // Need to change the URL with firebase url
+  private baseApiUrl = "http://localhost:8080";
+  constructor(private http: HttpClient) { }
+
+  upload(file: File): Observable<any> {
+    const formData = new FormData();
+
+    formData.append("file", file);
+
+    // Request for uploading the file
+    const req = new HttpRequest('POST', `${this.baseApiUrl}/upload`, formData, {
+      reportProgress: true,
+      responseType: 'json'
+    });
+
+    return this.http.request(req);
+  }
+
+  // Getting back the information of the uploaded files
+  getFiles(): Observable<any> {
+    return this.http.get(`${this.baseApiUrl}/files`);
+  }
+>>>>>>> Stashed changes
 }

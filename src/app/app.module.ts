@@ -2,7 +2,10 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
+<<<<<<< Updated upstream
 import { FormsModule } from '@angular/forms';
+=======
+>>>>>>> Stashed changes
 
 import { AppComponent } from './app.component';
 import { FileUploadComponent } from './file-upload/file-upload.component';
@@ -23,6 +26,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { FileDetailsComponent } from './file-details/file-details.component';
+<<<<<<< Updated upstream
 import { CustomComponentsComponent } from './custom-components/custom-components.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTooltipModule } from '@angular/material/tooltip';
@@ -42,6 +46,9 @@ import { LessonComponent } from './lesson/lesson.component';
 import { CreateLessonComponent } from './create-lesson/create-lesson.component';
 import { LessonContentComponent } from './lesson-content/lesson-content.component';
 import { ContentPreviewComponent } from './content-preview/content-preview.component';
+=======
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+>>>>>>> Stashed changes
 
 const materialModules = [
   MatCardModule,
@@ -56,6 +63,7 @@ const materialModules = [
   MatGridListModule,
   MatDividerModule,
   MatPaginatorModule,
+<<<<<<< Updated upstream
   MatSnackBarModule,
   MatTooltipModule
 ];
@@ -72,6 +80,15 @@ const routes: Routes = [
   { path: 'addLesson', component: CreateLessonComponent },
   { path: 'content/:id', component: LessonContentComponent },
   { path: 'contentView/:lessonId/:contentId', component: ContentPreviewComponent }
+=======
+  MatSnackBarModule
+];
+
+const routes: Routes = [
+  { path: '', redirectTo: '/fileupload', pathMatch: 'full' },
+  { path: 'fileupload', component: FileUploadComponent },
+  { path: 'filedetails', component: FileDetailsComponent }
+>>>>>>> Stashed changes
 ];
 
 @NgModule({
@@ -79,6 +96,7 @@ const routes: Routes = [
     AppComponent,
     FileUploadComponent,
     NavBarComponent,
+<<<<<<< Updated upstream
     FileDetailsComponent,
     ModalComponent,
     ButtonComponent,
@@ -90,6 +108,9 @@ const routes: Routes = [
     CreateLessonComponent,
     LessonContentComponent,
     ContentPreviewComponent
+=======
+    FileDetailsComponent
+>>>>>>> Stashed changes
   ],
   imports: [
     BrowserModule,
@@ -97,10 +118,13 @@ const routes: Routes = [
     NoopAnimationsModule,
     materialModules,
     RouterModule.forRoot(routes),
+<<<<<<< Updated upstream
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireStorageModule,
     AngularFireDatabaseModule,
     FormsModule
+=======
+>>>>>>> Stashed changes
   ],
   providers: [],
   bootstrap: [AppComponent]

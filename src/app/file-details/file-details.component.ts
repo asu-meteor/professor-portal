@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FileUploadService } from '../file-upload/file-upload.service';
+<<<<<<< Updated upstream
 import { map } from 'rxjs';
 import { compileNgModule } from '@angular/compiler';
+=======
+import { Observable } from 'rxjs';
+>>>>>>> Stashed changes
 
 @Component({
   selector: 'app-file-details',
@@ -10,6 +14,7 @@ import { compileNgModule } from '@angular/compiler';
 })
 export class FileDetailsComponent implements OnInit {
 
+<<<<<<< Updated upstream
   fileUploads?: any[];
   lessonKeys?: any[];
   contentKeys: string[] = [];
@@ -74,5 +79,13 @@ export class FileDetailsComponent implements OnInit {
   creatingFinalData(val1: any) {
     console.log(val1['name']);
     this.data.push({ key: val1['name'], value: val1['extension'] });
+=======
+  fileInfos?: Observable<any>;
+
+  constructor(private fileUploadService: FileUploadService) { }
+
+  ngOnInit(): void {
+    this.fileInfos = this.fileUploadService.getFiles()
+>>>>>>> Stashed changes
   }
 }

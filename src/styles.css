@@ -1,14 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
 /*@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";*/
 /* @import "~bootstrap/dist/css/bootstrap.css"; */
+<<<<<<< Updated upstream
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+=======
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+>>>>>>> Stashed changes
 
 html,
 body {
   height: 100%;
+<<<<<<< Updated upstream
   background-color: #323232;
+=======
+  background-color: #1a1721;
+>>>>>>> Stashed changes
 }
 body {
   margin: 0;

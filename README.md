@@ -1,3 +1,8 @@
+<<<<<<< Updated upstream
+=======
+# professor-portal
+A web portal that allows professors to upload files to visualize within in Unity 
+>>>>>>> Stashed changes
 # ProfessorUI
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.2.

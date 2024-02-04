@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 <!-- Show all the files list uploaded to the firebase server -->
 <div class="min-h-screen ml-32 mr-8 py-5">
   <app-field addClass="w-[25%] mb-4" fieldType="search"></app-field>
@@ -56,3 +57,23 @@
     </table>
   </div>
 </div>
+=======
+<!--Show all the files list uploaded to the firebase server-->
+<div class="container align-items-center">
+  <div class="row">
+    <mat-card class="example-card">
+      <mat-card-header>
+        <mat-card-title>List of files</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-list role="list">
+          <mat-list-item role="listitem" *ngFor="let file of fileInfos | async">
+            <a href="{{ file.url }}">{{ file.name }}</a>
+          </mat-list-item>
+        </mat-list>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+
+>>>>>>> Stashed changes
